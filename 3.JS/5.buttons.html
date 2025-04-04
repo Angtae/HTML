@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #result {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>버튼??</h1>
+    <div id="result">0</div>
+    <div>
+        <button onclick="increment()">증가(+1)</button>
+        <button onclick="decrement()">감소(-1)</button>
+    </div>
+    <script>
+
+        function increment() {
+            var result = document.getElementById("result")
+            result.innerText = Number(result.innerText) + 1;
+        }
+
+        function decrement() {
+            var result = document.getElementById("result")
+            result.innerText = Number(result.innerText) - 1;
+        }
+        //숙제1. 감소할때 0 이하로 안내려가게 (if문 써서서)
+        // let count = 0;
+
+        // function increment() {
+        // count++;
+        // document.getElementById("result").innerText = count;
+        // }
+
+        // function decrement() {
+        // count--;
+        // document.getElementById("result").innerText = count;
+        // }
+    </script>
+</body>
+</html>

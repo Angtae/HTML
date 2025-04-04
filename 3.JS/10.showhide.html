@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="toggleDiv()">토글(show/hide) 아래 영역</button>
+    <div id="showhide">이것은 숨겨질 div 입니다.</div>
+
+    <script>
+        function toggleDiv() {
+            var mydiv = document.getElementById('showhide');
+            if (mydiv.style.display === "none") {
+                mydiv.style.display = "block";
+            } else {
+                mydiv.style.display = "none";
+            }
+            //미션1. 이 요소를 숨기기 (버튼 다시 누르면 보이기)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>화면 리프래쉬 예제</h1>
+    <p>이 페이지는 3초후에 리프래쉬 됩니다.</p>
+    <script>
+        // document. <-- DOM 제거
+        // window.  <-- 창(브라우저창)을 제거
+        window.onload = function() {
+            //3초 기다렸다가 실행....
+            //setTimeout(콜백함수,3000); // 3000ms = 3s
+            setTimeout(function(){
+                console.log("3초 기다렸음!!");
+            }, 3000); //3초 기다렸다가 여기 위에줄 내용을 실행함
+        }
+    </script>
+</body>
+</html>
