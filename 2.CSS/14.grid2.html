@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>반응형 그리드</title>
+    <style>
+        /* 🟢 그리드 컨테이너 스타일 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3칸 레이아웃 */
+            gap: 15px; /* 그리드 간격 */
+        }
+
+        /* 🟢 개별 그리드 아이템 스타일 */
+        .grid-item {
+            background-color: aqua;
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 30px 0;
+        }
+
+        /* 🟢 큰 박스 (2칸 차지) */
+        .grid-item.big {
+            grid-column: span 2;
+        }
+
+        /* 🔵 반응형 설정 */
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 한 줄에 하나씩 */
+            }
+            
+            .grid-item.big {
+                grid-column: span 1; /* 한 줄 차지하도록 변경 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>반응형 그리드</h1>
+    <div class="grid-container">
+        <div class="grid-item big">박스1 (2칸)</div> <!-- big 클래스 추가 -->
+        <div class="grid-item">박스2</div>
+        <div class="grid-item">박스3</div>
+        <div class="grid-item">박스4</div>
+        <div class="grid-item">박스5</div>
+    </div>    
+</body>
+</html>
