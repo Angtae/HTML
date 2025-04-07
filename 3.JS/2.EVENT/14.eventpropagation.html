@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .container {
+      padding: 20px;
+      background-color: blue;
+    }
+    .inner {
+      padding: 10px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="inner">클릭하시오</div>
+  </div>
+  <script>
+    // 1. 바깥 div 요소 선택
+    const container = document.querySelector('.container');
+
+    // 2. 안쪽 div 요소 선택
+    const inner = document.querySelector('.inner');
+
+    // 3. 바깥 요소 클릭 시 동작
+    container.addEventListener('click', function (event) {
+      console.log('컨테이너 클릭됨');
+    });
+
+    // 4. 안쪽 요소 클릭 시 동작 + 이벤트 전파 막기
+    inner.addEventListener('click', function (event) {
+      console.log('안쪽 클릭됨');
+      event.stopPropagation(); // 부모에게 전파

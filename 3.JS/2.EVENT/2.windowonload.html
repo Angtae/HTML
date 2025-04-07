@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // HTML, CSS, JS, 이미지 등 모든 리소스 로딩이 끝났을 때 실행됨
+        window.onload = () => {
+            console.log("모든 로딩이 끝남");
+        };
+
+        // HTML 요소(DOM 트리)만 다 로딩되었을 때 실행됨
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM 로딩이 끝남");
+        });
+    </script>
+
+</body>
+</html>

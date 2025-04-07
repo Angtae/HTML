@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #dragItem1 {
+      width: 100px;
+      height: 100px;
+      background-color: tomato;
+      margin: 10px;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: grab;
+    }
+
+    #dragItem2 {
+      width: 100px;
+      height: 100px;
+      background-color: dodgerblue;
+      margin: 10px;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: grab;
+    }
+
+    #dragItem3 {
+      width: 100px;
+      height: 100px;
+      background-color: mediumseagreen;
+      margin: 10px;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: grab;
+    }
+
+    #dropZone {
+      width: 350px;
+      height: 350px;
+      border: 4px dashed yellow;
+      background: linear-gradient(to bottom right, #8A2BE2, #FFDEAD);
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
+      overflow: auto;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="dragItems">
+    <div id="dragItem1" draggable="true">Drag me</div>
+    <div id="dragItem2" draggable="true">Drag me</div>
+    <div id="dragItem3" draggable="true">Drag me</div>
+    <div id="dropZone">Drop here</div>
+  </div>
+  <script>
+    // 숙제 : 박스 3개 만들고 하나의 드롭존 안에 넣기
+    const dragItems = document.querySelectorAll('[draggable="true"]');
+    const dropZone = document.getElementById('dropZone');
+    let draggedItem = null;
+
+    dragItems.forEach(item => {
+      item.addEventListener('dragstart', function(event) {
+        draggedItem = event.target;
+        console.log("드래그 시작", draggedItem.id);
+      });
+    });
+
+    dropZone.addEventListener('dragover', function(event) {
+      event.preventDefault();
+    });
+
+    dropZone.addEventListener('drop', function (event) {
+      event.preventDefault();
+      if (draggedItem) {
+        dropZone.appendChild(draggedItem);
+        console.log("드롭 완료:", draggedItem.id);
+        draggedItem = null;
+      }
+    });
+  </script>
+</body>
+</html>

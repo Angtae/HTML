@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    #myElement {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      transition: background-color 0.3s; /* 색상 전환 부드럽게 */
+    }
+  </style>
+</head>
+<body>
+  <div id="myElement"></div>
+
+  <script>
+    // div 요소를 변수에 저장
+    const myElement = document.getElementById("myElement");
+
+    // 마우스를 올렸을 때
+    myElement.addEventListener("mouseover", function () {
+      console.log("마우스 올라감");
+      myElement.style.backgroundColor = "red"; // 빨간색으로 변경
+    });
+
+    // 마우스를 벗어났을 때
+    myElement.addEventListener("mouseout", function () {
+      console.log("마우스 나감");
+      myElement.style.backgroundColor = "blue"; // 파란색으로 변경
+    });
+  </script>
+</body>
+</html>

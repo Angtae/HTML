@@ -7,10 +7,11 @@
 <body>
     <h1>색상 변경(토글)</h1>
     <p id="text">이 텍스트의 색상을 변경(토글) 해보세요</p>
-    <button onclick="toggleColor()"">색상변경</button>
+    <button onclick="toggleColor()">색상변경</button>
     <script>
         //미션1. 버튼을 눌러서 글자색을 빨강->파랑->빨강->파랑->....반복을 만든다.
         function toggleColor() {
+            const text = document.getElementById("text");
             if (text.style.color == "red") {
                 text.style.color = "blue";
             } else {

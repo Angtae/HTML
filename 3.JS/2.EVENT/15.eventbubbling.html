@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+    div {
+      padding: 50px;
+    }
+    #child {
+      background-color: cyan;
+    }
+    #parent {
+      background-color: lightcoral;
+    }
+    #grandparent {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div id="grandparent">
+      할배(조부모)
+      <div id="parent">
+        부모
+        <div id="child">
+          자식
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const child = document.getElementById('child');
+    const parent = document.getElementById('parent');
+    const grandparent = document.getElementById('grandparent');
+
+    // 자식 클릭
+    child.addEventListener('click', (event) => {
+      alert('child 클릭됨');
+      event.stopPropagation(); // 여기서만 막아도 돼 (전파 테스트용)
+    });
+
+    // 부모 클릭
+    parent.addEventListener('click', () => {
+      alert('parent 클릭됨');
+    });
+
+    // 조부모 클릭
+    grandparent.addEventListener('click', () => {
+      alert('grandparent 클릭됨');
+    });
+  </script>
+</body>
+</html>

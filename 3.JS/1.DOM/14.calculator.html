@@ -5,11 +5,15 @@
     <title>계산기</title>
     <style>
         .calculator{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
+            display: grid; // 버튼을 격자 모형으로 정렬렬
+            grid-template-columns: repeat(4, 1fr); //4개읠 열로 균등 분할
+            grid-gap: 10px; //버튼 간격
             max-width: 300px;
-            margin: 10% auto;
+            margin: 10% auto; //화면 가운대로 배치
+            background-color: #ffffff;
+            padding-inline-start: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .calculator input{
@@ -57,8 +61,18 @@
 
         function clickCal(value){
             const inputBox = document.getElementById('result');
+
+            if (value === "=") {
+                try {
+                    inputBox.value = eval(inputBox.value); //eval() <- 문자열로 된 수식을 직접 계산해주는 함수
+                } catch {
+                    inputBox.value = 'ERROR';
+                }
+            }else if (value === 'C') {
+                inputBox.value = '';
+            }else {
             inputBox.value = inputBox.value + value;
-            
+            }
         }
 
     </script>
