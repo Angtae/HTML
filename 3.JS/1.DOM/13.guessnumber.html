@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>숫자 맞추기 게임</h1>
+    <h2>1~100까지의 숫자 맞추기...</h2>
+    <input type="number" id="guessNumber" placeholder="숫자를 입력하시오">
+    <button id="guessButton" onclick="checkUserInput()">Guess</button>
+    <p id="result"></p>
+    <ul id="history"></ul>
+
+    <script>
+        // 미션1. 랜덤 숫자를 만들고 기억해둔다
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+        console.log("랜덤숫자: ", randomNumber);
+        //let <-- 생성 후 변경되는 변수
+        //const <-- 생성되면 안바뀌는 변수.. = 상수(contstant)
+        //        힌트 : Math.random() <-- 위에 범위내의 숫자가 생성성
+        // 미션2. 사용자가 입력한 값을 보고,
+        //        내가 생각한 숫자보다 작으면? "숫자가 너무 작아요",
+        //        같으면? "축하합니다 정답입니다~" 힌트 : 1.getElementById로 result 를 가져다가... 결과를 작성 , 
+        //        힌트2.if 로 비교
+        const userInput = document.getElementById('guessNumber');
+        const result = document.getElementById('result');
+        const history = document.getElementById('history');
+        function checkUserInput() {
+            const userInputValue = Number(userInput.value);
+            if (userInputValue < randomNumber) {
+                console.log("숫자가 작음")
+                result.innerHTML = "숫자가 작음"
+            } else if (userInputValue > randomNumber) {
+                console.log("숫자가 큼")
+                result.innerHTML = "숫자가 큼"
+            } else {
+                console.log("정답임");
+                result.innerHTML = "축하합니다. 정답입니다."
+            }
+
+            const newResult = document.createElement('li');
+                newResult.innerText = "사용자 입력 : " + userInputValue + ",";
+                history.appendChild(newResult);
+        }
+        // 미션3. 풀이를 하면서... 어떻게 숫자를 찍어야 가장 좋은것인가??
+        // 나는 몇번만에 맞출 수 있을까
+        // 미션4. 나의 찍기 기록을 계속 화면에 두고싶음
+        // 미션5. 각각의 입력값 뒤에 그 결과도 함께 적기
+    </script>
+</body>
+</html>
