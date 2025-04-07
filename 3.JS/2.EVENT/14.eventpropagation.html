@@ -34,4 +34,8 @@
     // 4. 안쪽 요소 클릭 시 동작 + 이벤트 전파 막기
     inner.addEventListener('click', function (event) {
       console.log('안쪽 클릭됨');
-      event.stopPropagation(); // 부모에게 전파
+      event.stopPropagation(); // 부모에게 전파되지 않도록 막음
+    });
+  </script>
+</body>
+</html>
