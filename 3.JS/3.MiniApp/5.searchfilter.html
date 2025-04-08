@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>실시간 검색 기능</h1>
+    <input type="text" id="searchInput" placeholder="검색...">
+    <ul id="itemsList">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Orange</li>
+        <li>Grape</li>
+        <li>Mango</li>
+        <li>Blueberry</li>
+        <li>Peach</li>
+        <li>Cherry</li>
+        <li>Kiwi</li>
+        <li>Pear</li>
+        <li>Lemon</li>
+        <li>Lime</li>
+        <li>Papaya</li>
+        <li>Plum</li>
+        <li>Raspberry</li>
+        <li>Coconut</li>
+        <li>Pomegranate</li>
+    </ul>
+    <script>
+        //미션1. 실시간 검색 기능을 구현한다.
+        //미션1-1. 검색창의 입력 결과를 가져온다.
+        //미션1-2. 해당 단어를 목록에 포함되어 있는지 확인한다. (include)
+        //미션1-3. 해다오디는것은 보여주고, 해당하지 않는것을 숨긴다. (display:none; <-- css속성 활용용)
+        
+        const list = document.getElementById('itemsList');
+        const items = list.querySelectorAll('li');
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input',() => {
+            const keyword = searchInput.value.toLowerCase();
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase(); //과일 하나의 이름을 꺼내서 text에 담아
+                if (text.includes(keyword)) {
+                    item.style.display = 'list-item';
+                }else {
+                    item.style.display = 'none';
+                }
+            })
+        });
+
+    </script>
+</body>
+</html>
