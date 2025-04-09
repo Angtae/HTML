@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Animation</title>
+    <style>
+        canvas {
+            border: 1px solid white;
+        }
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Pac-Man 상태 객체
+        const pacman = {
+            x: 350,
+            y: 200,
+            radius: 30,
+            startAngle: 0.2 * Math.PI,
+            endAngle: 1.8 * Math.PI,
+            directionX: 1,
+            directionY: 0,
+            speed: 2,
+            mouthDirection: 1 // 입 여닫는 방향
+        };
+
+        function drawPacman() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(pacman.x, pacman.y);
+            ctx.arc(pacman.x, pacman.y, pacman.radius, pacman.startAngle, pacman.endAngle);
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function updateAngles() {
+            const angleIncrement = 0.02 * Math.PI;
+
+            if (pacman.startAngle <= 0 || pacman.startAngle >= 0.25 * Math.PI) {
+                pacman.mouthDirection *= -1;
+            }
+
+            pacman.startAngle += angleIncrement * pacman.mouthDirection;
+            pacman.endAngle -= angleIncrement * pacman.mouthDirection;
+        }
+
+        function updatePacmanPosition() {
+            pacman.x += pacman.speed * pacman.directionX;
+            pacman.y += pacman.speed * pacman.directionY;
+
+            // 화면 밖으로 나가지 않게 제한
+            if (pacman.x > canvas.width - pacman.radius) {
+                pacman.x = canvas.width - pacman.radius;
+            }
+            if (pacman.x < pacman.radius) {
+                pacman.x = pacman.radius;
+            }
+        }
+
+        function animate() {
+            updatePacmanPosition();
+            drawPacman();
+            updateAngles();
+            requestAnimationFrame(animate);
+        }
+
+        function handleKeyDown(e) {
+            switch (e.key) {
+                case 'ArrowLeft':
+                    pacman.directionX = -1;
+                    pacman.directionY = 0;
+                    pacman.startAngle = 1.2 * Math.PI;
+                    pacman.endAngle = 0.8 * Math.PI;
+                    break;
+                case 'ArrowRight':
+                    pacman.directionX = 1;
+                    pacman.directionY = 0;
+                    pacman.startAngle = 0.2 * Math.PI;
+                    pacman.endAngle = 1.8 * Math.PI;
+                    break;
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyDown);
+        animate();
+    </script>
+</body>
+</html>
