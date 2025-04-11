@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Alert Icons</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="p-4">
+    <h1>부트스트랩 Alert 예제</h1>
+
+    <!-- 잘못된 클래스 수정: alert-prmary → alert-primary -->
+    <div class="alert alert-primary" role="alert">
+        <i class="bi bi-megaphone me-2"></i>기본 알림 메시지
+    </div>
+
+    <div class="alert alert-primary" role="alert">
+        <i class="bi bi-info-circle me-2"></i>기본 알림 메세지
+    </div>
+
+    <div class="alert alert-secondary" role="alert">
+        <i class="bi bi-cloud me-2"></i>세컨더리 알림 메세지
+    </div>
+
+    <div class="alert alert-success" role="alert">
+        <i class="bi bi-check-circle me-2"></i>로그인에 성공했습니다
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+        <i class="bi bi-x-octagon me-2"></i>로그인에 실패했습니다
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>비밀번호를 너무 쉽게 설정했습니다
+    </div>
+
+    <div class="alert alert-info" role="alert">
+        <i class="bi bi-info-lg me-2"></i>참고: 할말이 더이상 없습니다.
+    </div>
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-ban me-2"></i>담을 수 없는 메세지 입니다.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</body>
+
+</html>
