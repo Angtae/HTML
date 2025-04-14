@@ -10,7 +10,7 @@ const aDog = new Dog('charlie');
 const aDogSound = aDog.makeSound();
 console.log(aDogSound);
 
-const bDog = new Dog('brown');
+const bDog = new Dog('borry');
 const bDogSound = bDog.makeSound();
 console.log(bDogSound);
 
