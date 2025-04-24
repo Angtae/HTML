@@ -1,0 +1,13 @@
+<h2>상품 목록</h2>
+<ul>
+  <% products.forEach(p => { %>
+    <li>
+      <%= p.name %> - <%= p.price %>원
+      <% if (user) { %>
+        <a href="/add-to-cart/<%= p.id %>">[담기]</a>
+      <% } else { %>
+        <em>(로그인 후 담기 가능)</em>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
