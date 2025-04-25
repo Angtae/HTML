@@ -1,0 +1,67 @@
+/* 전체 페이지 배경과 폰트 설정 */
+body {
+    font-family: Arial, sans-serif; /* 본문 글꼴 */
+    margin: 0;                      /* 바깥 여백 제거 */
+    padding: 0;                     /* 안쪽 여백 제거 */
+    background-color: #f4f4f4;      /* 전체 배경색: 밝은 회색 */
+}
+
+/* 메모장 전체를 감싸는 컨테이너 박스 */
+.container {
+    max-width: 800px;               /* 최대 너비 설정 */
+    margin: 0 auto;                 /* 가운데 정렬 */
+    padding: 20px;                  /* 안쪽 여백 */
+    background-color: #ddd;         /* 컨테이너 배경색: 중간 회색 */
+    border-radius: 5px;             /* 모서리 둥글게 */
+}
+
+/* 입력창 (제목, 내용 입력란) 공통 스타일 */
+input, textarea {
+    width: 100%;                    /* 가로 전체 너비 */
+    padding: 10px;                  /* 안쪽 여백 */
+    margin-bottom: 10px;            /* 아래쪽 간격 */
+    box-sizing: border-box;
+}
+
+/* 모든 버튼에 공통으로 적용되는 기본 스타일 */
+button {
+    padding: 10px 20px;             /* 버튼 안 여백 */
+    margin-bottom: 20px;            /* 아래 간격 */
+    border: none;                   /* 테두리 제거 */
+    cursor: pointer;                /* 마우스 포인터 변경 */
+}
+
+/* 저장하기 버튼: 파란색으로 강조 */
+button.save {
+    background-color: #007bff;      /* 파란색 배경 */
+    color: white;                   /* 흰색 글씨 */
+}
+
+/* 메모 카드 목록 영역 설정: 유연한 배치 + 간격 */
+.memo-list {
+    display: flex;                  /* 가로 정렬 */
+    flex-wrap: wrap;                /* 줄바꿈 허용 */
+    gap: 20px;                      /* 메모들 간의 간격 */
+}
+
+/* 개별 메모 카드 스타일 */
+.memo {
+    background-color: white;        /* 카드 배경: 흰색 */
+    border: 1px solid #ccc;         /* 테두리: 연회색 */
+    padding: 15px;                  /* 안 여백 */
+    width: calc(33.333% - 20px);    /* 3개씩 배치되도록 너비 계산 */
+    box-sizing: border-box;         /* 패딩과 테두리 포함 계산 */
+    border-radius: 5px;             /* 둥근 모서리 */
+}
+
+/* 수정 버튼 스타일: 청록색 */
+.memo button.update {
+    background-color: #17a2b8;      /* 청록색 배경 */
+    color: white;                   /* 흰 글씨 */
+}
+
+/* 삭제 버튼 스타일: 노란색 */
+.memo button.delete {
+    background-color: #ffc107;      /* 노란색 배경 */
+    color: black;                   /* 검은 글씨 */
+}

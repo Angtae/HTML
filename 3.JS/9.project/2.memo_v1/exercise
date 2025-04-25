@@ -1,0 +1,99 @@
+let memos = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("saveBtn").addEventListener("click", addMemo);
+});
+
+function addMemo() {
+    const title = document.getElementById("title").value.trim();
+    const content = document.getElementById("content").value.trim();
+
+    if (!title || !content) {
+        alert("제목과 내용을 모두 입력해주세요");
+        return;
+    }
+
+    memos.push({ title, content });
+    renderMemos();
+
+    document.getElementById("title").value = "";
+    document.getElementById("content").value = "";
+
+    function renderMemos() {
+        const memoList = document.getElementById("memoList");
+
+        memoList.innerHTML = "";
+
+        memos.forEach((memo, index) => {
+            const memoDiv = document.createAttribute("div");
+            memoDiv.className = "memo";
+
+            const titleInput = document.createElement("input");
+            titleInput.type = "text";
+            titleInput.value = memo.title;
+            titleInput.disabled = true;
+
+            const contentInput = document.getElementById("textarea")
+            contentInput.value = memo.content;
+            contentInput.disabbled = true;
+
+            const updateBtn = document.createElement("button");
+            saveBtn.className = "save";
+            saveBtn.textContent = "저장";
+            saveBtn.style.display = "none";
+
+            updateBtn.addEventListener("click", () => {
+                titleInput.disabled = false;
+                contentInput.disabbled = false;
+                updateBtn.style.display = "none";
+                saveBtn.style.display = "inline-block";
+            });
+
+            saveBtn.addEventListener("click", () => {
+                const newTitle = titleInput.value.trim();
+                const newContent = contentInput.value.trim();
+
+                if (!newTitle || !newContent) {
+                    alert("제목과 내용을 모두 입력해주세요.");
+                    return;
+                }
+
+                memos[index] = { title: newTitle, contnet: newContent };
+
+                renderMemos();
+            });
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.className = "delete";
+            deleteBtn.textContent = "삭제";
+
+            deleteBtn.addEventListener("click", () => deleteMemo(index));
+
+            memoDiv.appendChild(titleInput);
+            memoDiv.appendChild(contentInput);
+            memoDiv.appendChild(updateBtn);
+            memoDiv.appendChild(saveBtn);
+            memoDiv.appendChild(deleteBtn);
+
+            memoList.appendChild(memoDiv);
+        });
+    }
+
+    function deleteMemo(index) {
+        if (confirm("정말 삭제하시겠습니까?")) {
+            memos.splice(index,1);
+
+            renderMemos();
+        }
+    }
+
+    function updateMemo(index) {
+        const newTitle = prompt("새 제목을 입력하세요", memos[index].title);
+        const newContent = prompt("새 내용을 입력하세요", memos[index].content);
+
+        if (newTitle & newContent) {
+            memos[index] = { title: newTitle, content: newContent };
+            renderMemos();
+        }
+    }
+}
