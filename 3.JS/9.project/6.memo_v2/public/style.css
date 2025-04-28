@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button.save {
+    background-color: #007bff;
+    color: white;
+}
+
+.memo-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.memo {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 300px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.memo input[type="text"],
+.memo textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.memo img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.memo button.update {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.memo button.delete {
+    background-color: #ffc107;
+    color: black;
+}
+
+.memo button.save {
+    background-color: #007bff;
+    color: white;
+    margin-top: 10px;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.checkbox-row input[type="checkbox"] {
+    margin-right: 5px;
+}
